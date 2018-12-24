@@ -5,7 +5,7 @@ RUN yum update && \
     yum install -y \
     autoconf \
     libtool \
-    unzip
+    unzip \
     epel-release \
     git \
     python \

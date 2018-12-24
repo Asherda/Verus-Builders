@@ -31,8 +31,10 @@ RUN yum update && \
     gcc-c++ \
     patch \
     which \
-    glibc-static libstdc++-static  \
+    glibc-static \
+    libstdc++-static  \
     centos-release-scl-rh  \
+    scl-utils \
     devtoolset-7 && \
     update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
