@@ -40,6 +40,6 @@ RUN apt-get update && apt-get -y install \
   apt-get -y autoremove; \
   apt-get -y autoclean; \
   apt-get -y clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 VOLUME /home
 WORKDIR /home

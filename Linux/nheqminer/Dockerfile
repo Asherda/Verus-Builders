@@ -1,11 +1,12 @@
-FROM ubuntu:xenial
+FROM centos:7
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
-    BOOST_MINOR_VERSION=67\
+    BOOST_MINOR_VERSION=69\
     BOOST_PATCH=0 \
-    BOOST_ROOT=/usr/include/boost
+    BOOST_ROOT=/usr/include/boost \
+    PATH=:${PATH}:/CMake/bin
 
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
@@ -14,13 +15,24 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
-RUN apt-get -qq update && apt-get install -q -y \
-    cmake && \
-    apt-get -qq update && \
-    apt-get install -y \
-    g++-multilib \
-    curl \
-    wget && \
+RUN yum install -y \
+    autoconf \
+    libtool \
+    unzip \
+    git \
+    make \
+    python \
+    wget \
+    curl  \
+    automake \
+    gcc \
+    gcc-c++ \
+    patch \
+    glibc-static libstdc++-static \
+    && git clone https://github.com/Kitware/CMake.git && \
+    cd CMake && \
+    ./bootstrap && make && make install && \
+    cd .. \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
     tar -zxf ${BOOST_TAR} && \
@@ -36,6 +48,4 @@ RUN apt-get -qq update && apt-get install -q -y \
     cxxflags="-march=x86-64 -std=c++11" && \
     ./b2 install -j$(nproc) && \
     cd .. && \
-    rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    apt-get -y clean; \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
