@@ -24,7 +24,7 @@ RUN yum update && \
     git \
     make \
     python \
-    python34-devel \
+    python34-devel.x86_64 \
     wget \
     curl  \
     automake \
