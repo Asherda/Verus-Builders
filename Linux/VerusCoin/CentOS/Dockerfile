@@ -15,6 +15,7 @@ RUN yum install -y \
     gcc \
     gcc-c++ \
     patch \
+    which \
     glibc-static \
     libstdc++-static && \
     yum install -y centos-release-scl-rh && \

@@ -28,6 +28,7 @@ RUN yum install -y \
     gcc \
     gcc-c++ \
     patch \
+    which \
     glibc-static libstdc++-static \
     && git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
