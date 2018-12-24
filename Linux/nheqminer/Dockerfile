@@ -32,7 +32,7 @@ RUN yum install -y \
     && git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
     ./bootstrap && make && make install && \
-    cd .. \
+    cd .. && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
     tar -zxf ${BOOST_TAR} && \
@@ -49,3 +49,7 @@ RUN yum install -y \
     ./b2 install -j$(nproc) && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
+
+VOLUME /home
+WORKDIR /home
+
