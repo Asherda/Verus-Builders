@@ -9,6 +9,7 @@ RUN yum update && \
     epel-release \
     git \
     python \
+    python34-devel \
     make \
     wget \
     curl \
@@ -21,13 +22,11 @@ RUN yum update && \
     glibc-static \
     libstdc++-static \
     centos-release-scl-rh && \
-    yum install -y devtoolset-7 && \
+    yum install -y devtoolset-7 \
+    lbzip2 && \
     update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
-    scl enable devtoolset-7 bash && \
-    wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm && \
-    rpm -Uvh epel-release*rpm && \
-    yum install -y lbzip2
+    scl enable devtoolset-7 bash
 
 VOLUME /home
 WORKDIR /home
