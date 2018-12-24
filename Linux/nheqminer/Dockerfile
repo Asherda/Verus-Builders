@@ -6,7 +6,10 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MINOR_VERSION=69 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
-    PATH=:${PATH}:/CMake/bin
+    PATH=:${PATH}:/CMake/bin \
+    CC=/usr/bin/gcc-7.3 \
+    CXX=/usr/bin/g++-7.3
+
 
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
@@ -63,6 +66,6 @@ RUN yum update && \
 
 VOLUME /home
 WORKDIR /home
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
 
 

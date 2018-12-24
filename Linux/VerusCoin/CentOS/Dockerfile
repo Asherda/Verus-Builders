@@ -1,5 +1,7 @@
 FROM centos:7
 MAINTAINER Asher Dawes asher.dawes@gmail.com
+ENV CC=/usr/bin/gcc-7.3 \
+    CXX=/usr/bin/g++-7.3
 
 RUN yum update && \
     yum install -y \
@@ -31,5 +33,5 @@ RUN yum update && \
 
 VOLUME /home
 WORKDIR /home
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
 
