@@ -3,7 +3,7 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
-    BOOST_MINOR_VERSION=69\
+    BOOST_MINOR_VERSION=69 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     PATH=:${PATH}:/CMake/bin
