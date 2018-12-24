@@ -15,7 +15,9 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
-RUN yum install -y \
+RUN yum update && \
+    yum install epel-release && \
+    yum install -y \
     autoconf \
     libtool \
     unzip \
@@ -29,7 +31,12 @@ RUN yum install -y \
     gcc-c++ \
     patch \
     which \
-    glibc-static libstdc++-static \
+    glibc-static libstdc++-static  \
+    centos-release-scl-rh && \
+    yum install -y devtoolset-7 && \
+    update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
+    update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
+    scl enable devtoolset-7 bash && \
     && git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
     ./bootstrap && make && make install && \

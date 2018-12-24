@@ -1,7 +1,9 @@
 FROM centos:7
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN yum install -y \
+RUN yum update && \
+    yum install epel-release && \
+    yum install -y \
     autoconf \
     libtool \
     unzip \
