@@ -24,7 +24,7 @@ RUN yum update && \
     git \
     make \
     python \
-    python34-devel.x86_64 \
+    python-devel \
     wget \
     curl  \
     automake \
@@ -63,4 +63,6 @@ RUN yum update && \
 
 VOLUME /home
 WORKDIR /home
+ENTRYPOINT ["/bin/bash"]
+
 
