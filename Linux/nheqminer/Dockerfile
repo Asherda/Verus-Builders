@@ -7,8 +7,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     PATH=:${PATH}:/CMake/bin \
-    CC=/usr/bin/gcc-7.3 \
-    CXX=/usr/bin/g++-7.3
+    CC=/opt/rh/devtoolset-7/root/usr/bin/gcc \
+    CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
 
 
 
