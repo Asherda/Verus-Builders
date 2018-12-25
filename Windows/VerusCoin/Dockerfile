@@ -1,4 +1,4 @@
-FROM ubuntu:cosmic
+FROM ubuntu:disco
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 ENV PATH=/root/.cargo/bin:$PATH
