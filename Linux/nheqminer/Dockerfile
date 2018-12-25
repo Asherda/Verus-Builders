@@ -40,7 +40,7 @@ RUN yum update && \
     centos-release-scl-rh  && \
     yum install -y  \
     devtoolset-7  \
-    devtoolset-7-binutils-devel \&& \
+    devtoolset-7-binutils-devel && \
     update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
     scl enable devtoolset-7 sh && \
