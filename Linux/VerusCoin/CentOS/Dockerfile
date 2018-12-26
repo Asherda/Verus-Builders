@@ -8,7 +8,6 @@ RUN yum update && \
     autoconf \
     libtool \
     unzip \
-    epel-release \
     git \
     python \
     python34-devel \

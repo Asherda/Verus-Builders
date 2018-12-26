@@ -20,7 +20,6 @@ ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOS
 
 RUN yum update && \
     yum install -y \
-    epel-release \
     autoconf \
     libtool \
     unzip \
