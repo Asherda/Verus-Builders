@@ -1,7 +1,5 @@
 FROM centos:7
 MAINTAINER Asher Dawes asher.dawes@gmail.com
-ENV CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
-    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 
 RUN yum update && \
     yum install -y \
@@ -31,6 +29,9 @@ RUN yum update && \
     scl enable devtoolset-8 sh && \
     source /opt/rh/devtoolset-8/enable && \
     yum clean all
+
+ENV CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
+    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 
 VOLUME /home
 WORKDIR /home

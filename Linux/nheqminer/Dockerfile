@@ -7,8 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     PATH=:${PATH}:/CMake/bin \
-    CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
-    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
+
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
     BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
@@ -63,6 +62,9 @@ RUN yum update && \
     ./b2 install -j$(nproc) && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
+
+ENV CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
+    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 
 VOLUME /home
 WORKDIR /home
