@@ -48,24 +48,7 @@ RUN yum update && \
     gcc -v && \
     git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
-    ./bootstrap && make && make install && \
-    cd .. && \
-    wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
-    mkdir -p /usr/include/ && \
-    tar -zxf ${BOOST_TAR} && \
-    rm ${BOOST_TAR} && \
-    mkdir ${BOOST_ROOT} && \
-    cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    ./bootstrap.sh --prefix=${BOOST_ROOT} --libdir=${BOOST_ROOT}/lib  && \
-    ./b2 --libdir=${BOOST_ROOT}/lib \
-    address-model=64 \
-    -j$(nproc) \
-    link=static \
-    threading=multi \
-    cxxflags="-march=x86-64 -std=c++11" && \
-    ./b2 install -j$(nproc) && \
-    cd .. && \
-    rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
+    ./bootstrap && make && make install
 
 VOLUME /home
 WORKDIR /home
