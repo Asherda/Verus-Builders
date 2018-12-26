@@ -42,12 +42,13 @@ RUN yum update && \
     yum install -y *.rpm && \
     update-alternatives --install /usr/bin/gcc-8.2 gcc-8.2 /opt/rh/devtoolset-8/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
-    scl enable devtoolset-8 sh && \
-    source /opt/rh/devtoolset-8/enable && \
     yum clean all
 
 
-RUN git clone https://github.com/Kitware/CMake.git && \
+RUN scl enable devtoolset-8 sh && \
+    source /opt/rh/devtoolset-8/enable && \
+    gcc -v && \
+    git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
     ./bootstrap && make && make install && \
     cd .. && \
