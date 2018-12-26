@@ -6,7 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MINOR_VERSION=69 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
-    PATH=:${PATH}:/CMake/bin
+    PATH=:${PATH}:/CMake/bin \
+    CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
+    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
     BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
@@ -50,7 +52,6 @@ RUN yum update && \
     mkdir -p /usr/include/ && \
     tar -zxf ${BOOST_TAR} && \
     rm ${BOOST_TAR} && \
-    mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh --prefix=${BOOST_ROOT} --libdir=${BOOST_ROOT}/lib  && \
     ./b2 --libdir=${BOOST_ROOT}/lib \

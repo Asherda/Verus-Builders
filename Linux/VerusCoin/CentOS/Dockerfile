@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Asher Dawes asher.dawes@gmail.com
-ENV CC=/opt/rh/devtoolset-7/root/usr/bin/gcc \
-    CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
+ENV CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
+    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 
 RUN yum update && \
     yum install -y \
