@@ -8,6 +8,7 @@ RUN yum update && \
     autoconf \
     libtool \
     unzip \
+    epel-release \
     git \
     python \
     python34-devel \
@@ -28,7 +29,8 @@ RUN yum update && \
     update-alternatives --install /usr/bin/gcc-8.2 gcc-8.2 /opt/rh/devtoolset-8/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
     scl enable devtoolset-8 sh && \
-    source /opt/rh/devtoolset-8/enable
+    source /opt/rh/devtoolset-8/enable &&
+    yum clean all
 
 VOLUME /home
 WORKDIR /home

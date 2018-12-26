@@ -20,6 +20,7 @@ ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOS
 
 RUN yum update && \
     yum install -y \
+    epel-release \
     autoconf \
     libtool \
     unzip \
@@ -43,7 +44,10 @@ RUN yum update && \
     update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
     scl enable devtoolset-8 sh && \
     source /opt/rh/devtoolset-8/enable && \
-    git clone https://github.com/Kitware/CMake.git && \
+    yum clean all
+
+
+RUN git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
     ./bootstrap && make && make install && \
     cd .. && \
