@@ -25,8 +25,7 @@ RUN yum update && \
     libstdc++-static \
     centos-release-scl-rh && \
     wget -r -l1 -H -t1 -nd -N -np  https://cbs.centos.org/repos/sclo7-devtoolset-8-rh-candidate/x86_64/os/Packages && \
-    yum install -y *.rpm && \
-    lbzip2 && \
+    yum install -y lbzip2 *.rpm && \
     update-alternatives --install /usr/bin/gcc-8.2 gcc-8.2 /opt/rh/devtoolset-8/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
     scl enable devtoolset-8 sh && \
