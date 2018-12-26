@@ -44,6 +44,7 @@ RUN yum update && \
     update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
     yum clean all && scl enable devtoolset-8 sh && \
     source /opt/rh/devtoolset-8/enable && \
+    export CXX=$(which g++) CC=$(which gcc) && \
     gcc -v && \
     git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
