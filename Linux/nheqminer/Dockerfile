@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MINOR_VERSION=69 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
-    PATH=:${PATH}:/CMake/bin 
+    PATH=:${PATH}:/CMake/bin
 
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \

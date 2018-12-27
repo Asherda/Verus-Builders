@@ -22,16 +22,16 @@ RUN yum update && \
     glibc-static \
     libstdc++-static \
     centos-release-scl-rh && \
-    wget -r -l1 -H -t1 -nd -N -np  https://cbs.centos.org/repos/sclo7-devtoolset-8-rh-candidate/x86_64/os/Packages && \
-    yum install -y lbzip2 *.rpm && \
-    update-alternatives --install /usr/bin/gcc-8.2 gcc-8.2 /opt/rh/devtoolset-8/root/usr/bin/gcc 10 && \
-    update-alternatives --install /usr/bin/g++-8.2 g++-8.2 /opt/rh/devtoolset-8/root/usr/bin/g++ 10 && \
-    scl enable devtoolset-8 sh && \
-    source /opt/rh/devtoolset-8/enable && \
-    yum clean all
+    yum install -y devtoolset-7 \
+    devtoolset-7-binutils-devel \
+    lbzip2 && \
+    update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
+    update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
+    scl enable devtoolset-7 sh && \
+    source /opt/rh/devtoolset-7/enable
 
-ENV CXX=/opt/rh/devtoolset-8/root/usr/bin/g++ \
-    CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
+ENV CC=/opt/rh/devtoolset-7/root/usr/bin/gcc \
+    CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
 
 VOLUME /home
 WORKDIR /home
