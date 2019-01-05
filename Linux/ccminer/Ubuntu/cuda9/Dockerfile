@@ -22,8 +22,7 @@ RUN apt-get update && apt-get install -y \
     apt-get update && apt-get install -y \
     gcc-6 \
     g++-6 \
-    cuda-9-0 \
-
+    cuda-9-0
 
 VOLUME /home
 WORKDIR /home
