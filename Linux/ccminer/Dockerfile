@@ -1,7 +1,9 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     libcurl4-gnutls-dev \
     libssl-dev \
     libjansson-dev \
