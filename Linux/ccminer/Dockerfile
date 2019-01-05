@@ -11,7 +11,7 @@ RUN apt-get install -y \
     autotools-dev \
     build-essential && \
     dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb && \
-    apt-get update && apt-get install -y cuda-8-0 && \
+    apt-get update && apt-get install -y cuda-8-0 
 
 
 
