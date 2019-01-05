@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
-RUN apt-get install -y \
+RUN apt-get update && install -y \
     libcurl4-gnutls-dev \
     libssl-dev \
     libjansson-dev \
