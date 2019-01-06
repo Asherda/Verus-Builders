@@ -3,7 +3,9 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     CC=/usr/bin/gcc-7 \
-    CXX=/usr/bin/g++-7
+    CXX=/usr/bin/g++-7 \
+    PATH=$PATH:/usr/local/cuda/bin
+
 
 RUN apt-get update && apt-get install -y \
     apt-utils \
@@ -22,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     apt-get update && apt-get install -y \
     gcc-7 \
     g++-7 \
-    cuda \
+    cuda
 
 VOLUME /home
 WORKDIR /home

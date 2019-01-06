@@ -3,7 +3,9 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     CC=/usr/bin/gcc-6 \
-    CXX=/usr/bin/g++-6
+    CXX=/usr/bin/g++-6 \
+    PATH=$PATH:/usr/local/cuda/bin
+
 
 RUN apt-get update && apt-get install -y \
     apt-utils \
