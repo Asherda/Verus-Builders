@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update && apt-get install -y \
     apt-utils \
     build-essential \
+    curl \
     software-properties-common \
     libcurl4-gnutls-dev \
     libssl-dev \
@@ -22,7 +23,11 @@ RUN apt-get update && apt-get install -y \
     dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb && \
     apt-get update && apt-get install -y \
     cuda-8-0 \
-    g++-6
+    g++-6 && \
+    apt-get -y autoremove; \
+    apt-get -y autoclean; \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /home
 WORKDIR /home

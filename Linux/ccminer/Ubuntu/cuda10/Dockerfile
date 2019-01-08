@@ -10,11 +10,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update && apt-get install -y \
     apt-utils \
     build-essential \
+    curl \
     software-properties-common \
     libcurl4-gnutls-dev \
     libssl-dev \
     libjansson-dev \
-    gcc \
     automake \
     autotools-dev \
     wget && \
@@ -24,7 +24,11 @@ RUN apt-get update && apt-get install -y \
     apt-get update && apt-get install -y \
     gcc-7 \
     g++-7 \
-    cuda
+    cuda && \
+    apt-get -y autoremove; \
+    apt-get -y autoclean; \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /home
 WORKDIR /home
