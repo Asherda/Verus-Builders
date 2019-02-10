@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN yum update && \
+RUN yum update -y && \
     yum install -y \
     autoconf \
     libtool \
