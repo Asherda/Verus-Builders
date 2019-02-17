@@ -3,7 +3,7 @@ Docker build environments for VerusCoin
 
 This is where the Dockerfile definition is kept, with auto-builds onto [davidldawes on Docker hub](https://hub.docker.com/r/davidldawes/verus-builders). Note that autobuilds only occur from master, dev and static branches. 
 
-At the moment I'm messing with linking things in statically, so I'm using the static branch for that on both Docker hub for the container and [github for the VerusCoin source](https://github.com/DavidLDawes/veruscoin)..
+At the moment I'm messing with linking things in statically, so I'm using the Centos tree for that that on Docker hub for the container and at the moment the static branch of [github for the VerusCoin source](https://github.com/DavidLDawes/VerusCoin/tree/static).
 
 The container makes it easy to build VerusCoin for assorted Linux distributions and windows. Mac is currently not available.
 
@@ -11,8 +11,6 @@ Get the automatically built Docker container defintion from [Docker hub](https:/
 
 **Supported Operating Systems**
 * **centos** - davidldawes/verus-builders:verus-centos 
-* **debian** - davidldawes/verus-builders:verus-debian 
-* **fedora** - davidldawes/verus-builders:verus-fedora 
 * **ubuntu** - davidldawes/verus-builders:verus-ubuntu 
 * **windows** - davidldawes/verus-builders:verus-windows 
 
