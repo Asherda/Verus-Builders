@@ -25,6 +25,7 @@ RUN yum update -y && \
     yum install -y devtoolset-7 \
     devtoolset-7-binutils-devel \
     lbzip2 && \
+    cd /home && \
     wget https://download.oracle.com/berkeley-db/db-6.2.32.tar.gz && \
     tar -xf db-6.2.32.tar.gz &&      \
     cd db-6.2.32/build_unix  &&      \
