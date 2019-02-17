@@ -21,8 +21,8 @@ Arguably the world's most advanced technology, zero knowledge privacy-centric bl
 You can get things up and running with a docker pull & docker run command. You can leave the -v command out if you're just pushing results back to github, but be aware that without the -v on the docker run command, on exiting the container all of the disk contents are reset and any clones and builds and especially updates you did within the container will be lost.
 
     mkdir ~/centos-builder-docker
-    docker pull asherd/verus-builders:verus-centos
-    docker run -v ~/centos-builder-docker:home -it asherd/verus-builders:verus-centos /bin/bash
+    docker pull davidldawes/verus-builders:verus-centos
+    docker run -v ~/centos-builder-docker:/home -it davidldawes/verus-builders:verus-centos /bin/bash
     [root@168c1a5eb6d7 home]#
 
 We're now in the home directory of the container, which is mapped to centos-builder-docker on the computer's drive. From there you can clone the code and launch a build in the container, since all the tools are already installed.
