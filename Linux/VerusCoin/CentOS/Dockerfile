@@ -26,8 +26,8 @@ RUN yum update -y && \
     devtoolset-7-binutils-devel \
     lbzip2 && \
     wget https://download.oracle.com/berkeley-db/db-6.2.32.tar.gz && \
-    tar -xf db-6.3.32.tar.gz &&      \
-    cd db-6.3.32/build_unix  &&      \
+    tar -xf db-6.2.32.tar.gz &&      \
+    cd db-6.2.32/build_unix  &&      \
     ../dist/configure --prefix=/usr  \
                 --enable-compat185   \
                 --enable-dbm         \
