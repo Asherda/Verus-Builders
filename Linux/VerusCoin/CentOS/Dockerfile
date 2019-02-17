@@ -25,7 +25,7 @@ RUN yum update -y && \
     yum install -y devtoolset-7 \
     devtoolset-7-binutils-devel \
     lbzip2 && \
-    get http://download.oracle.com/berkeley-db/db-6.2.32.tar.g && \
+    wget http://download.oracle.com/berkeley-db/db-6.2.32.tar.g && \
     tar -xf db-6.3.32.tar.gz &&      \
     cd db-6.3.32/build_unix  &&      \
     ../dist/configure --prefix=/usr  \
@@ -41,7 +41,6 @@ RUN yum update -y && \
       /usr/lib/libdb*.{so,la}        \
       /usr/share/doc/db-6.2.32    && \ 
     cd ../.. && \
-
     wget https://www.zlib.net/zlib-1.2.11.tar.gz && \
     tar -xf zlib-1.2.11.tar.gz && \
     cd zlib-1.2.11 && \
