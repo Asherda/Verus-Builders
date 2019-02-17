@@ -49,6 +49,16 @@ RUN yum update -y && \
     ./configure --prefix=/usr --shared --libdir=/lib --static && \
     make test && \
     make install && \
+    cd .. && \
+    rm -Rf zlib-1.2.11 && \
+    wget http://curl.haxx.se/download/curl-7.64.0.tar.gz && \
+    tar xf curl-7.64.0.tar.gz && \
+    cd curl-7.64.0 && \
+    ./configure --disable-shared --enable-static --prefix=/tmp/curl --disable-ldap --disable-sspi --without-librtmp --disable-ftp --disable-file --disable-dict --disable-telnet --disable-tftp --disable-rtsp --disable-pop3 --disable-imap --disable-smtp --disable-gopher --disable-smb --without-libidn && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -Rf curl-7.64.0 && \
     update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
     update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
     scl enable devtoolset-7 sh && \
