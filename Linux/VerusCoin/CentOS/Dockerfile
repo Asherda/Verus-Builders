@@ -13,7 +13,6 @@ RUN yum update -y && \
     make \
     wget \
     curl-devel \
-    libcurl-devel \
     automake \
     gcc \
     gcc-c++ \
