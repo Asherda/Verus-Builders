@@ -23,6 +23,7 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
+    git-core \
     libcurl4-gnutls-dev \
     libgconf-2-4 && \
     apt-get -y clean; \
