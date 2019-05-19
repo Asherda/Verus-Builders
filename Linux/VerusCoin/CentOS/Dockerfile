@@ -12,7 +12,6 @@ RUN yum update -y && \
     python34-devel \
     make \
     wget \
-    curl-devel \
     automake \
     gcc \
     gcc-c++ \

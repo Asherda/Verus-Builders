@@ -2,7 +2,7 @@ FROM centos:7
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV BOOST_MAJOR_VERSION=1 \
-    BOOST_MINOR_VERSION=69 \
+    BOOST_MINOR_VERSION=70 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     PATH=:${PATH}:/CMake/bin
