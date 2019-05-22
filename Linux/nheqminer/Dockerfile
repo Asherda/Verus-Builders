@@ -65,7 +65,7 @@ RUN yum update && \
 ENV CXX=/opt/rh/devtoolset-7/root/usr/bin/g++ \
     CC=/opt/rh/devtoolset-7/root/usr/bin/gcc
 
-VOLUME /home
-WORKDIR /home
+VOLUME /build
+WORKDIR /build
 
 

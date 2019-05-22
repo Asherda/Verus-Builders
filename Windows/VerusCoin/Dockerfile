@@ -8,6 +8,7 @@ RUN apt-get update && apt-get -y install \
   bsdmainutils \
   cmake \
   curl \
+  git \
   libc6-dev \
   libcap-dev \
   libdb++-dev \
