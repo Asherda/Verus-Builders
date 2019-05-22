@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-VOLUME /home
-WORKDIR /home
+VOLUME /build
+WORKDIR /build
 
 

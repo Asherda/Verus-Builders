@@ -11,6 +11,7 @@ RUN apt-get update && \
     curl \
     libtool \
     make \
+    git \
     ncurses-dev \
     unzip \
     python \
@@ -23,10 +24,12 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    git-core \
-    libcurl4-gnutls-dev \
+    lintian \
+    libcurl4-openssl-dev \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+VOLUME /build
+WORKDIR /build
 
