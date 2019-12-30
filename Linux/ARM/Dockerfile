@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:disco
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -12,7 +12,8 @@ RUN apt-get update && \
     libtool \
     make \
     git \
-    g++-aarch64-linux-gnu \
+    g++-8-aarch64-linux-gnu \
+    gcc-8-aarch64-linux-gnu \
     binutils-aarch64-linux-gnu \
     ncurses-dev \
     unzip \
