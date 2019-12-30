@@ -12,8 +12,7 @@ RUN apt-get update && \
     libtool \
     make \
     git \
-    g++-8-aarch64-linux-gnu \
-    gcc-8-aarch64-linux-gnu \
+    g++-aarch64-linux-gnu \
     binutils-aarch64-linux-gnu \
     ncurses-dev \
     unzip \
