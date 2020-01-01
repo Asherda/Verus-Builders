@@ -1,4 +1,4 @@
-FROM ubuntu:disco
+FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
