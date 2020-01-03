@@ -3,9 +3,9 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
     apt-get -y install \
-    build-essential \
     pkg-config \
-    libc6-dev \
+    g++-multilib \
+    libc6-dev-arm64-cross \
     m4 \
     autoconf \
     curl \
