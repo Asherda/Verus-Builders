@@ -4,7 +4,6 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 RUN apt-get update && \
     apt-get -y install \
     pkg-config \
-    g++-multilib \
     libc6-dev-arm64-cross \
     m4 \
     autoconf \
