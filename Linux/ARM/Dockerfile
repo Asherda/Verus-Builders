@@ -2,6 +2,7 @@ FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get -y install \
     pkg-config \
     libc6-dev-arm64-cross \
