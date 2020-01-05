@@ -4,7 +4,9 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get -y install \
+    build-essential \
     pkg-config \
+    libc6-dev \
     libc6-dev-arm64-cross \
     m4 \
     autoconf \
