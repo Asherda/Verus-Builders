@@ -14,7 +14,6 @@ RUN apt-get update && \
     libtool \
     make \
     git \
-    gcc-aarch64-linux-gnu \
     g++-aarch64-linux-gnu \
     binutils-aarch64-linux-gnu \
     ncurses-dev \
