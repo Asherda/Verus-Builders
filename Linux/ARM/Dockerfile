@@ -28,8 +28,7 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    libgconf-2-4 \
-    g++-multilib && \
+    libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
