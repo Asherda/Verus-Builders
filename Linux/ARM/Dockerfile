@@ -6,7 +6,6 @@ RUN apt-get update && \
     build-essential \
     pkg-config \
     libc6-dev \
-    libc6-dev-arm64-cross \
     m4 \
     autoconf \
     curl \
