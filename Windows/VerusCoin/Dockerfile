@@ -1,7 +1,7 @@
-FROM ubuntu:focal
+FROM ubuntu:eoan
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && apt-get upgrade -y && apt-get -y install \
   autoconf \
   automake \
   autogen \
