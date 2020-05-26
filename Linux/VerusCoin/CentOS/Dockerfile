@@ -19,18 +19,13 @@ RUN yum update -y && \
     which \
     glibc-static \
     libstdc++-static \
-    centos-release-scl-rh && \
-    yum install -y devtoolset-7 \
-    devtoolset-7-binutils-devel \
+    centos-release-scl && \
+    yum install -y devtoolset-8 \
+    devtoolset-8-binutils-devel \
     lbzip2 && \
-    update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
-    update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
-    scl enable devtoolset-7 sh && \
-    scl enable devtoolset-7 bash && \
-    source /opt/rh/devtoolset-7/enable
-
-ENV CC=/opt/rh/devtoolset-7/root/usr/bin/gcc \
-    CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
+    scl enable devtoolset-8 sh && \
+    scl enable devtoolset-8 bash && \
+    source /opt/rh/devtoolset-8/enable
 
 VOLUME /build
 WORKDIR /build

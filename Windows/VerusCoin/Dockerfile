@@ -1,4 +1,4 @@
-FROM ubuntu:cosmic
+FROM ubuntu:focal
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && apt-get -y install \
