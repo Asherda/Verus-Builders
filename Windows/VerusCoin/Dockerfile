@@ -25,7 +25,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get -y install \
   pkg-config \
   protobuf-compiler \
   python \
-  python-zmq \
   unzip \
   wget \
   zip \
