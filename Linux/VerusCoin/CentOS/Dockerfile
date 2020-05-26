@@ -19,7 +19,7 @@ RUN yum update -y && \
     which \
     glibc-static \
     libstdc++-static \
-    centos-release-scl && \
+    centos-release-scl-rh && \
     yum install -y devtoolset-8 \
     devtoolset-8-binutils-devel \
     lbzip2 && \
