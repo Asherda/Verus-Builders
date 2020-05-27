@@ -27,7 +27,6 @@ RUN apt-get update && \
     libdb++-dev \
     gcc-8 \
     g++-8 \
-    libcurl4-openssl-dev \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
