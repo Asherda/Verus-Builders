@@ -1,8 +1,12 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
+    apt-get -y install \
+    software-properties-common && \
+    add-apt-repository ppa:ubuntu-toolchain-r/test && \
     apt-get upgrade -y && \
+    apt-get update && \
     apt-get -y install \
     build-essential \
     pkg-config \
