@@ -3,7 +3,8 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
     apt-get -y install \
-    software-properties-common && \
+    software-properties-common \
+    ca-certificates && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     apt-get upgrade -y && \
     apt-get update && \
@@ -29,16 +30,16 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    gcc-8 \
-    g++-8 \
+    gcc-6 \
+    g++-6 \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 80 \
-    --slave /usr/bin/g++ g++ /usr/bin/g++-8 \
-    --slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-8 \
-    --slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-8 \
-    --slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-8 && \
+    RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 \
+    --slave /usr/bin/g++ g++ /usr/bin/g++-6 \
+    --slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-6 \
+    --slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-6 \
+    --slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-6 && \
     update-alternatives --config gcc
 
 VOLUME /build
