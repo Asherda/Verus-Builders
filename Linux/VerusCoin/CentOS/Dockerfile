@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN yum update -y && \
