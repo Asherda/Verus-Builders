@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.04
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -30,17 +30,11 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    gcc-6 \
-    g++-6 \
+    gcc \
+    g++ \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 \
-    --slave /usr/bin/g++ g++ /usr/bin/g++-6 \
-    --slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-6 \
-    --slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-6 \
-    --slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-6 && \
-    update-alternatives --config gcc
 
 VOLUME /build
 WORKDIR /build
