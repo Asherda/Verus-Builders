@@ -14,34 +14,20 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
-RUN yum update -y && \
-    yum install -y \
-    epel-release \
+RUN apt-get update  && \
+    apt-get install -y \
     autoconf \
     libtool \
     unzip \
     git \
     make \
     python \
-    python-devel \
     wget \
     curl  \
     automake \
     gcc \
-    gcc-c++ \
-    patch \
-    which \
-    glibc-static \
-    libstdc++-static  \
-    centos-release-scl-rh  && \
-    yum install -y devtoolset-7 \
-    devtoolset-7-binutils-devel \
-    lbzip2 && \
-    update-alternatives --install /usr/bin/gcc-7.3 gcc-7.3 /opt/rh/devtoolset-7/root/usr/bin/gcc 10 && \
-    update-alternatives --install /usr/bin/g++-7.3 g++-7.3 /opt/rh/devtoolset-7/root/usr/bin/g++ 10 && \
-    scl enable devtoolset-7 sh && \
-    source /opt/rh/devtoolset-7/enable && \
-    export CXX=$(which g++) CC=$(which gcc) && \
+    g++ \
+    cmake \
     git clone https://github.com/Kitware/CMake.git && \
     cd CMake && \
     ./bootstrap && make && make install && \
@@ -61,9 +47,6 @@ RUN yum update -y && \
     ./b2 install -j$(nproc) && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
-
-ENV CXX=/opt/rh/devtoolset-7/root/usr/bin/g++ \
-    CC=/opt/rh/devtoolset-7/root/usr/bin/gcc
 
 VOLUME /build
 WORKDIR /build
