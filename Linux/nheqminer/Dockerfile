@@ -1,4 +1,4 @@
-FROM ubunty:xenial
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV BOOST_MAJOR_VERSION=1 \
