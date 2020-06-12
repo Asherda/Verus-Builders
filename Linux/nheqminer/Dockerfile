@@ -15,7 +15,7 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
 RUN apt-get update  && \
-    apt-get update -y \
+    apt-get upgrade -y \
     apt-get install -y \
     autoconf \
     libtool \
