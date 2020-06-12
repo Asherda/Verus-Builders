@@ -1,4 +1,4 @@
-FROM centos:7
+FROM ubunty:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV BOOST_MAJOR_VERSION=1 \
@@ -15,6 +15,7 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
 RUN apt-get update  && \
+    apt-get update -y \
     apt-get install -y \
     autoconf \
     libtool \
@@ -38,12 +39,18 @@ RUN apt-get update  && \
     rm ${BOOST_TAR} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh --prefix=${BOOST_ROOT} --libdir=${BOOST_ROOT}/lib  && \
-    ./b2 --libdir=${BOOST_ROOT}/lib \
-    address-model=64 \
-    -j$(nproc) \
-    link=static \
-    threading=multi \
-    cxxflags="-march=x86-64 -std=c++11" && \
+    ./b2 --with-system  \
+        --with-filesystem  \
+        --with-log_setup \
+        --with-log  \
+        --with-date_time \
+        --with-thread \
+        --libdir=${BOOST_ROOT}/lib \
+        address-model=64 \
+         -j$(nproc) \
+        link=static \
+        threading=multi \
+        cxxflags="-march=x86-64 -std=c++11" && \
     ./b2 install -j$(nproc) && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}
