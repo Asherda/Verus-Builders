@@ -4,8 +4,7 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 ENV BOOST_MAJOR_VERSION=1 \
     BOOST_MINOR_VERSION=72 \
     BOOST_PATCH=0 \
-    BOOST_ROOT=/usr/include/boost \
-    PATH=:${PATH}:/CMake/bin
+    BOOST_ROOT=/usr/include/boost
 
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
@@ -28,9 +27,7 @@ RUN apt-get update  && \
     automake \
     gcc \
     g++ \
-    cmake \
-    git clone https://github.com/Kitware/CMake.git && \
-    cd CMake && \
+    cmake && \
     ./bootstrap && make && make install && \
     cd .. && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
