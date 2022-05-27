@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM ubuntu:20.04
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -24,8 +24,8 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    gcc \
-    g++ \
+    gcc-8 \
+    g++-8 \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

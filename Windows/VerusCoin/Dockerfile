@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && apt-get upgrade -y && apt-get -y install \
